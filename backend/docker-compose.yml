@@ -1,0 +1,49 @@
+services:
+  app:
+    container_name: rural-producer-api
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=docker
+    env_file:
+      - .env.docker
+    depends_on:
+      - db
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+
+  db:
+    container_name: rural-producer-db
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=rural_producer_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]  # Remova o uso de variáveis aqui
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  pgadmin:
+    container_name: rural-producer-pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: adminpassword
+    ports:
+      - "5050:80"
+    volumes:
+      - ./pgadmin-config/servers.json:/pgadmin4/servers.json
+      - ./pgadmin-config/pgpass:/pgpass
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
