@@ -2,7 +2,73 @@
 
 Este é um projeto fullstack desenvolvido com React (Frontend) e NestJS (Backend) para gerenciamento de produtores rurais.
 
-## 📁 Estrutura do Projeto
+## 🌐 Links do Projeto
+
+### Frontend
+- Produção: [https://brain-ag-front.webseekers.com.br/](https://brain-ag-front.webseekers.com.br/)
+
+### Backend
+- API: [https://brain-ag-api.webseekers.com.br](https://brain-ag-api.webseekers.com.br)
+- Swagger: [https://brain-ag-api.webseekers.com.br/api](https://brain-ag-api.webseekers.com.br/api)
+
+## 🔌 Endpoints da API
+
+### Produtores
+```
+GET    /api/producers            # Lista todos os produtores
+POST   /api/producers            # Cria um novo produtor
+GET    /api/producers/:id        # Obtém um produtor específico
+PUT    /api/producers/:id        # Atualiza um produtor
+DELETE /api/producers/:id        # Remove um produtor
+```
+
+### Dashboard
+```
+GET    /api/producers/dashboard/totals    # Obtém estatísticas do dashboard
+```
+
+### Formato dos Dados
+
+#### Criar/Atualizar Produtor
+```typescript
+{
+  cpfCnpj: string;          // CPF ou CNPJ do produtor
+  name: string;             // Nome do produtor
+  farmName: string;         // Nome da fazenda
+  city: string;             // Cidade
+  state: string;            // Estado (UF)
+  totalArea: number;        // Área total em hectares
+  arableLand: number;       // Área agricultável em hectares
+  vegetationArea: number;   // Área de vegetação em hectares
+  crops: string[];          // Lista de culturas plantadas
+}
+```
+
+#### Resposta do Dashboard
+```typescript
+{
+  totalFarms: number;       // Total de fazendas
+  totalArea: number;        // Área total em hectares
+  stateDistribution: [{     // Distribuição por estado
+    state: string;
+    count: number;
+    percentage: number;
+  }];
+  cropDistribution: [{      // Distribuição por cultura
+    crop: string;
+    count: number;
+    percentage: number;
+  }];
+  landUseDistribution: {    // Distribuição do uso do solo
+    arableLand: number;
+    vegetationArea: number;
+    arableLandPercentage: number;
+    vegetationAreaPercentage: number;
+  };
+}
+```
+
+# 📁 Estrutura do Projeto
 
 O projeto está organizado em uma estrutura monorepo:
 
