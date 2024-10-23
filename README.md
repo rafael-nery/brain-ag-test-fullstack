@@ -15,16 +15,16 @@ Este é um projeto fullstack desenvolvido com React (Frontend) e NestJS (Backend
 
 ### Produtores
 ```
-GET    /api/producers            # Lista todos os produtores
-POST   /api/producers            # Cria um novo produtor
-GET    /api/producers/:id        # Obtém um produtor específico
-PUT    /api/producers/:id        # Atualiza um produtor
-DELETE /api/producers/:id        # Remove um produtor
+GET    /producers            # Lista todos os produtores
+POST   /producers            # Cria um novo produtor
+GET    /producers/:id        # Obtém um produtor específico
+PUT    /producers/:id        # Atualiza um produtor
+DELETE /producers/:id        # Remove um produtor
 ```
 
 ### Dashboard
 ```
-GET    /api/producers/dashboard/totals    # Obtém estatísticas do dashboard
+GET    /producers/dashboard/totals    # Obtém estatísticas do dashboard
 ```
 
 ### Formato dos Dados
