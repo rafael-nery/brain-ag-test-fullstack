@@ -11,6 +11,12 @@ Este é um projeto fullstack desenvolvido com React (Frontend) e NestJS (Backend
 - API: [https://brain-ag-api.webseekers.com.br](https://brain-ag-api.webseekers.com.br)
 - Swagger: [https://brain-ag-api.webseekers.com.br/api](https://brain-ag-api.webseekers.com.br/api)
 
+## 🔑 Acessando o Sistema
+
+### Frontend
+- Email: `user@brain.agr.br`
+- Senha: `123456`
+
 ## 🔌 Endpoints da API
 
 ### Produtores
@@ -162,17 +168,6 @@ cd backend
 pnpm install
 pnpm run start:dev
 ```
-
-## 🔑 Acessando o Sistema
-
-### Frontend
-- URL: `http://localhost:5173`
-- Email: `user@brain.agr.br`
-- Senha: `123456`
-
-### Backend
-- API: `http://localhost:3000`
-- Swagger: `http://localhost:3000/api`
 
 ## 📊 Funcionalidades
 
